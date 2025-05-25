@@ -1,0 +1,40 @@
+[
+  {
+    "effectiveDateTime": "2025-05-26T10:00:00",
+    "announcementDate": "2025-05-23",
+    "round": 1,
+    "exchangeRates": [
+      {
+        "currencyCode": "USD",
+        "buyingRate": {
+          "rate": 35.00,
+          "perUnit": 1
+        },
+        "sellingRate": {
+          "rate": 36.00,
+          "perUnit": 1
+        },
+        "displayDecimal": 2
+      }
+    ]
+  },
+  {
+    "effectiveDateTime": "2025-05-26T09:00:00",
+    "announcementDate": "2025-05-24",
+    "round": 2,
+    "exchangeRates": [
+      {
+        "currencyCode": "EUR",
+        "buyingRate": {
+          "rate": 38.50,
+          "perUnit": 1
+        },
+        "sellingRate": {
+          "rate": 39.50,
+          "perUnit": 1
+        },
+        "displayDecimal": 2
+      }
+    ]
+  }
+]
