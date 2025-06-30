@@ -2,7 +2,6 @@ package com.example.travelcard.Entities;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,107 +9,44 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "quotation")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Quotation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long custid;
+    @Column(name = "custid", nullable = false)
+    private Long custId;
 
-    @Column(name = "exchange_rate_id", columnDefinition = "uuid")
-    private UUID exchangeRateId;
+    @Column(name = "exchange_rate_id", nullable = false)
+    private java.util.UUID exchangeRateId;
 
-    @Column(name = "quotation_type")
-    private String quotationType;
+    @Column(name = "quotation_type", nullable = false)
+    private String quotationType; // e.g. BUY, SELL
 
-    @Column(name = "source_currency")
+    @Column(name = "source_currency", nullable = false)
     private String sourceCurrency;
 
-    @Column(name = "dest_currency")
+    @Column(name = "dest_currency", nullable = false)
     private String destCurrency;
 
-    @Column(name = "exchange_rate")
+    @Column(name = "exchange_rate", nullable = false, precision = 19, scale = 4)
     private BigDecimal exchangeRate;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "expires_at")
+    @Column(name = "expires_at", nullable = false)
     private LocalDateTime expiresAt;
-
-    // Constructors
-    public Quotation() {}
-
-    // Getters and setters
-
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getCustid() {
-        return custid;
-    }
-    public void setCustid(Long custid) {
-        this.custid = custid;
-    }
-
-    public UUID getExchangeRateId() {
-        return exchangeRateId;
-    }
-    public void setExchangeRateId(UUID exchangeRateId) {
-        this.exchangeRateId = exchangeRateId;
-    }
-
-    public String getQuotationType() {
-        return quotationType;
-    }
-    public void setQuotationType(String quotationType) {
-        this.quotationType = quotationType;
-    }
-
-    public String getSourceCurrency() {
-        return sourceCurrency;
-    }
-    public void setSourceCurrency(String sourceCurrency) {
-        this.sourceCurrency = sourceCurrency;
-    }
-
-    public String getDestCurrency() {
-        return destCurrency;
-    }
-    public void setDestCurrency(String destCurrency) {
-        this.destCurrency = destCurrency;
-    }
-
-    public BigDecimal getExchangeRate() {
-        return exchangeRate;
-    }
-    public void setExchangeRate(BigDecimal exchangeRate) {
-        this.exchangeRate = exchangeRate;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getExpiresAt() {
-        return expiresAt;
-    }
-    public void setExpiresAt(LocalDateTime expiresAt) {
-        this.expiresAt = expiresAt;
-    }
 }
-
-
-
